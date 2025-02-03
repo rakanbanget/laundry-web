@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Authcontroller;
+use App\Http\Controllers\homeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('login', [Authcontroller::class, 'index']);
+
+Route::get('/outlet', function() {
+    return view('outlets.outlet');
+})->name('outlet.table');
+
+Route::post('login', [Authcontroller::class, 'login']);
+
+Route::resource('home', homeController::class);

@@ -27,10 +27,13 @@
                         <td>{{$outlet -> alamat}}</td>
                         <td>{{$outlet -> tlp}}</td>
                         <td>
-                            <a href="" class="btn btn-sm btn-warning">edit</a>
-                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{$outlet->id}}">
-                                hapus
-                            </button>
+                            <a href="{{ route('outlets.edit',$outlet->id)}}" class="btn btn-sm btn-warning">edit</a>
+                            <form action="{{ route('outlets.destroy', $outlet->id) }}" method="POST" style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                              </form>
+                      
                         </td>
                     </tr>
                 @endforeach

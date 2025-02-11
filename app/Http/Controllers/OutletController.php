@@ -36,4 +36,26 @@ class OutletController extends Controller
     Outlet::create($request->all());
     return redirect()->route('outlet.index');
     }
+
+    public function edit(Outlet $id) {
+        return view('outlets.edit', compact('id'));
+    }
+
+    public function update(Request $request,Outlet $id ) {
+        $request->validate([
+            'nama' => 'required|string|max:255',
+            'alamat' => 'required',
+            'tlp' => 'required|string|max:14',
+        ]);
+
+        $id->update($request->all());
+        return redirect()->route('outlet.index')
+            ->with('success', 'Outlet updated successfully.');
+    }
+
+    public function destroy(Outlet $id)  {
+        $id->delete();
+
+        return redirect()->route('outlet.index')->with('sucsess','data berhasil di hapus');
+    }
 }

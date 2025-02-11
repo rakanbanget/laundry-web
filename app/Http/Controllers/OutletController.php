@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Outlet;
 use App\Http\Requests\StoreOutletRequest;
 use App\Http\Requests\UpdateOutletRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class OutletController extends Controller
 {
@@ -13,54 +15,25 @@ class OutletController extends Controller
      */
     public function index()
     {
-        return view('outlet');
+        $outlets = Outlet::all();
+        return view('outlets.outlet', compact('outlets'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+    public function create() {
+        return view('outlets.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreOutletRequest $request)
+    public function store(Request $request) 
     {
-        //
-    }
+        // dd($request->all());
+        $request->validate([
+            'nama'   => 'required|string|max:255',
+            'alamat' => 'required',  
+            'tlp'    => 'required|string|max:14',
+        ], 
+    );
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Outlet $outlet)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Outlet $outlet)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateOutletRequest $request, Outlet $outlet)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Outlet $outlet)
-    {
-        //
+    Outlet::create($request->all());
+    return redirect()->route('outlet.index');
     }
 }

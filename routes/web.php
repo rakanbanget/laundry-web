@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Authcontroller;
 use App\Http\Controllers\homeController;
+use App\Http\Controllers\OutletController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,10 +18,9 @@ use App\Http\Controllers\homeController;
 
 Route::get('login', [Authcontroller::class, 'index']);
 
-Route::get('/outlet', function() {
-    return view('outlets.outlet');
-})->name('outlet.table');
-
+Route::get('outlet', [OutletController::class, 'index'])->name('outlet.index');
+Route::get('outlet/create', [OutletController::class, 'create'])->name('outlets.create'); 
+Route::post('outlet/store', [OutletController::class, 'store'])->name('outlets.store');
 Route::post('login', [Authcontroller::class, 'login']);
 
 Route::resource('home', homeController::class);

@@ -9,5 +9,18 @@ class Outlet extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
+
     protected $table = 'tb_outlet';
+
+    protected $fillable = [
+        'nama',
+        'alamat',
+        'tlp'
+    ];
+
+    public function users(){
+        return $this->hasMany(User::class, 'id_outlet');
+    }
 }

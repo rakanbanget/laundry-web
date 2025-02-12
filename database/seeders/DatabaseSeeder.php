@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use App\Models\Outlet;
+use App\Models\Paket;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -23,26 +24,29 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        $outlet = [[
-            'nama' => 'Outlet 1',
-            'alamat' => 'Jakarta 123',
-            'tlp' => '081238912'
+        // $outlet = [[
+        //     'nama' => 'Outlet 1',
+        //     'alamat' => 'Jakarta 123',
+        //     'tlp' => '081238912'
+        // ]];
+
+        // $data = [[
+        //     'nama' => 'Rakan123',
+        //     'username' => 'rakan',
+        //     'password' => Hash::make('123'),
+        //     'id_outlet'=> 1,
+        //     'role' => 'admin'
+        // ]];
+
+        $pakets = [[
+            'id_outlet' => '1',
+            'jenis' => 'kiloan',
+            'nama_paket' => 'gozi',
+            'harga' => '12000'
         ]];
 
-        $data = [[
-            'nama' => 'Rakan123',
-            'username' => 'rakan',
-            'password' => Hash::make('123'),
-            'id_outlet'=> 1,
-            'role' => 'admin'
-        ]];
-
-        foreach($outlet as $index) {
-            Outlet::insert($index);
-        }
-
-        foreach ($data as $index) {
-            User::insert($index);
+        foreach ($pakets as $index) {
+            Paket::insert($index);
         }
     }
 }

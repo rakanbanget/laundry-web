@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Authcontroller;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\OutletController;
+use App\Http\Controllers\PaketController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,8 @@ Route::post('outlet/store', [OutletController::class, 'store'])->name('outlets.s
 Route::get('outlet/edit/{id}', [OutletController::class, 'edit'])->name('outlets.edit');
 Route::post('outlet/update/{id}', [OutletController::class, 'update'])->name('outlets.update');
 Route::delete('outlet/delete{id}', [OutletController::class, 'destroy'])->name('outlets.destroy');
+
+// Route::get('paket', [PaketController::]);
 Route::post('login', [Authcontroller::class, 'login']);
 
 Route::resource('home', homeController::class);

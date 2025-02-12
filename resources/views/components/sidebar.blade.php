@@ -82,6 +82,7 @@
                 <h6 class="collapse-header">Login Screens:</h6>
                 <a class="collapse-item" href="login.html">Login</a>
                 <a class="collapse-item" href="{{ url('/outlet')}}">Outlet</a>
+                <a class="collapse-item" href="{{ url('/outlet')}}">Produk</a>
                 <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
                 <div class="collapse-divider"></div>
                 <h6 class="collapse-header">Other Pages:</h6>

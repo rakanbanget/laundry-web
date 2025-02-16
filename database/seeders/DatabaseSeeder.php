@@ -30,23 +30,27 @@ class DatabaseSeeder extends Seeder
         //     'tlp' => '081238912'
         // ]];
 
-        // $data = [[
-        //     'nama' => 'Rakan123',
-        //     'username' => 'rakan',
-        //     'password' => Hash::make('123'),
-        //     'id_outlet'=> 1,
-        //     'role' => 'admin'
-        // ]];
-
-        $pakets = [[
-            'id_outlet' => '1',
-            'jenis' => 'kiloan',
-            'nama_paket' => 'gozi',
-            'harga' => '12000'
+        $data = [[
+            'nama' => 'Gozi',
+            'username' => 'Gozi',
+            'password' => '123',
+            'id_outlet'=> 1,
+            'role' => 'kasir'
         ]];
 
-        foreach ($pakets as $index) {
-            Paket::insert($index);
+        // $pakets = [[
+        //     'id_outlet' => '1',
+        //     'jenis' => 'kiloan',
+        //     'nama_paket' => 'gozi',
+        //     'harga' => '12000'
+        // ]];
+
+        // foreach ($pakets as $index) {
+        //     Paket::insert($index);
+        // }
+
+        foreach ($data as $index) {
+            User::insert($index);
         }
     }
 }

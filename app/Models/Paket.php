@@ -9,6 +9,7 @@ class Paket extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
     protected $table = 'tb_paket';
     protected $fillable = [
         'jenis',

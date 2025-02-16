@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Paket;
 use App\Http\Requests\StorePaketRequest;
 use App\Http\Requests\UpdatePaketRequest;
+use Illuminate\Http\Request;
 
 class PaketController extends Controller
 {
@@ -14,8 +15,8 @@ class PaketController extends Controller
     public function index()
     {
         //
-        $paket = Paket::all();
-        return view();
+        $pakets = Paket::all();
+        return view('pakets.paket', compact('pakets'));
         
     }
 
@@ -25,14 +26,25 @@ class PaketController extends Controller
     public function create()
     {
         //
+        return view('pakets.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorePaketRequest $request)
+    public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        $allowedJenis = ['kiloan', 'selimut', 'bedcover', 'kaos', 'lain'];
+
+        $request->validate([
+            'jenis' => 'required|in:' . implode(',',$allowedJenis),
+            'nama_paket' => 'required',
+            'harga' => 'required|numeric'
+        ],);
+
+        Paket::create($request->all());
+        return redirect()->route('pakets.paket');
     }
 
     /**

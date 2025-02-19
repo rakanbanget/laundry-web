@@ -26,15 +26,14 @@
                         <td>{{$paket -> jenis}}</td>
                         <td>{{$paket -> nama_paket}}</td>
                         <td>{{$paket -> harga}}</td>
-                        {{-- <td>
-                            <a href="{{ route('outlets.edit',$outlet->id)}}" class="btn btn-sm btn-warning">edit</a>
-                            <form action="{{ route('outlets.destroy', $outlet->id) }}" method="POST" style="display:inline;">
+                        <td>
+                            <a href="{{ route('pakets.edit',$paket->id)}}" class="btn btn-sm btn-warning">edit</a>
+                            <form action="{{ route('pakets.destroy', $paket->id) }}" method="POST" style="display:inline;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">Delete</button>
                               </form>
-                      
-                        </td> --}}
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>

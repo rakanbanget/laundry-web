@@ -18,7 +18,7 @@ class OutletController extends Controller
         $outlets = Outlet::all();
         return view('outlets.outlet', compact('outlets'));
     }
-
+    
     public function create() {
         return view('outlets.create');
     }

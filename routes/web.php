@@ -29,8 +29,12 @@ Route::post('outlet/update/{id}', [OutletController::class, 'update'])->name('ou
 Route::delete('outlet/delete{id}', [OutletController::class, 'destroy'])->name('outlets.destroy');
 
 Route::get('paket', [PaketController::class, 'index'])->name('pakets.paket');
+Route::get('paket/outlet/{id_outlet}', [PaketController::class, 'index'])->name('pakets.byOutlet');
 Route::get('paket/create', [PaketController::class, 'create'])->name('pakets.create');
 Route::post('paket/store', [PaketController::class, 'store'])->name('pakets.store');
+Route::get('paket/edit/{id}', [PaketController::class, 'edit'])->name('pakets.edit');
+Route::post('paket/update/{id}', [PaketController::class, 'update'])->name('pakets.update');
+Route::delete('paket/delete/{id}', [PaketController::class, 'destroy'])->name('pakets.destroy');
 
 Route::get('pengguna', [UserController::class, 'index'])->name('penggunas.pengguna');
 Route::get('pengguna/create', [UserController::class, 'create'])->name('penggunas.create');
@@ -38,6 +42,8 @@ Route::post('pengguna/store', [UserController::class, 'store'])->name('penggunas
 Route::get('pengguna/edit/{id}', [UserController::class, 'edit'])->name('penggunas.edit');
 Route::post('pengguna/update/{id}', [UserController::class, 'update'])->name('penggunas.update');
 Route::delete('pengguna/delete/{id}', [UserController::class, 'destroy'])->name('penggunas.destroy');
+
+Route::get('sidebar', [OutletController::class, 'sidebar'],)->name('components.sidebar');
 
 
 Route::post('login', [Authcontroller::class, 'login']);

@@ -47,10 +47,13 @@ Route::delete('pengguna/delete/{id}', [UserController::class, 'destroy'])->name(
 Route::get('pelanggan', [PelangganController::class, 'index'])->name('pelanggans.pelanggan');
 Route::get('pelanggan/create', [PelangganController::class, 'create'])->name('pelanggans.create');
 Route::post('pelanggan/store', [PelangganController::class, 'store'])->name('pelanggans.store');
+Route::get('pelanggan/edit/{id}', [PelangganController::class, 'edit'])->name('pelanggans.edit');
+Route::post('pelanggan/update/{id}', [PelangganController::class, 'update'])->name('pelanggans.update');
 Route::delete('pelanggan/destroy/{id}', [PelangganController::class, 'destroy'])->name('pelanggans.destroy');
 
 
 Route::get('sidebar', [OutletController::class, 'sidebar'],)->name('components.sidebar');
+
 
 
 Route::post('login', [Authcontroller::class, 'login']);

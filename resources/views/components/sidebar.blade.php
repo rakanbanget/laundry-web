@@ -17,6 +17,19 @@
     <!-- Heading -->
 
     <!-- Nav Item - Pages Collapse Menu -->
+    </li>
+    <!-- Divider -->
+        <a class="text-white ml-3 d-block mb-3" href="{{ route('pelanggans.create') }}">
+            <i class="fas fa-user-plus"></i>
+            <span>Regist Pelanggan</span>
+        </a>
+    <hr class="sidebar-divider d-none d-md-block">
+        <a class="text-white ml-3" href="{{ route('pelanggans.create') }}">
+            <i class="fas fa-money-bill-wave"></i>
+            <span>Transaksi</span>
+        </a>
+    <hr class="sidebar-divider d-none d-md-block">
+
     <li class="nav-item active">
         <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
             aria-controls="collapsePages">
@@ -39,7 +52,6 @@
         </div>
     </li>
 
-    <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 
     <!-- Sidebar Toggler (Sidebar) -->

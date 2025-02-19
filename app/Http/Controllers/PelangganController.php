@@ -47,12 +47,26 @@ class PelangganController extends Controller
         //
     }
 
+    public function edit(Pelanggan $id)  {
+     return view('pelanggans.edit', compact('id'));   
+    }
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Pelanggan $id)
     {
         //
+        $allowedjenis = ['L', 'P'];
+        $request->validate([
+            'nama' => 'required',
+            'alamat' => 'required',
+            'jenis_kelamin' => 'required|in:' . implode(',',$allowedjenis),
+            'tlp' => 'required|numeric'
+        ]);
+
+        $id->update($request->all());
+        return redirect()->route('pelanggans.pelanggan');
+
     }
 
     /**

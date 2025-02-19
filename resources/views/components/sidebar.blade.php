@@ -24,7 +24,7 @@
             <span>Regist Pelanggan</span>
         </a>
     <hr class="sidebar-divider d-none d-md-block">
-        <a class="text-white ml-3" href="{{ route('pelanggans.create') }}">
+        <a class="text-white ml-3" href="{{ route('transaksis.transaksi') }}">
             <i class="fas fa-money-bill-wave"></i>
             <span>Transaksi</span>
         </a>

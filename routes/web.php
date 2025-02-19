@@ -6,6 +6,7 @@ use App\Http\Controllers\homeController;
 use App\Http\Controllers\OutletController;
 use App\Http\Controllers\PaketController;
 use App\Http\Controllers\PelangganController;
+use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\UserController;
 use App\Models\User;
 
@@ -51,6 +52,7 @@ Route::get('pelanggan/edit/{id}', [PelangganController::class, 'edit'])->name('p
 Route::post('pelanggan/update/{id}', [PelangganController::class, 'update'])->name('pelanggans.update');
 Route::delete('pelanggan/destroy/{id}', [PelangganController::class, 'destroy'])->name('pelanggans.destroy');
 
+Route::get('transaksi', [TransaksiController::class, 'index'])->name('transaksis.transaksi');
 
 Route::get('sidebar', [OutletController::class, 'sidebar'],)->name('components.sidebar');
 

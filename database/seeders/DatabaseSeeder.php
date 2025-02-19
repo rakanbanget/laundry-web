@@ -8,6 +8,8 @@ use App\Models\User;
 use App\Models\Outlet;
 use App\Models\Paket;
 use App\Models\Pelanggan;
+use App\Models\Transaksi;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -32,10 +34,18 @@ class DatabaseSeeder extends Seeder
         // ]];
 
         $data = [[
-            'nama' => 'Gozi',
-            'alamat' => 'jalan kemana aja',
-            'jenis_kelamin' => 'L',
-            'tlp' => '0823212319837'
+            'id_outlet'      => 1,
+            'kode_invoice'   => 'INV-578',
+            'id_member'      => 1,
+            'tgl'            => Carbon::now(),
+            'batas_waktu'    => Carbon::now()->addDays(3),
+            'tgl_bayar'      => Carbon::now()->addDays(3),
+            'biaya_tambahan' => 0,
+            'diskon'         => 0,
+            'pajak'          => 0,
+            'status'         => 'baru',
+            'dibayar'        => 'belum_dibayar',
+            'id_user'        => 1,
         ]];
 
         // $pakets = [[
@@ -51,7 +61,7 @@ class DatabaseSeeder extends Seeder
         // }
 
         foreach ($data as $index) {
-            Pelanggan::insert($index);
+            Transaksi::insert($index);
         }
     }
 }

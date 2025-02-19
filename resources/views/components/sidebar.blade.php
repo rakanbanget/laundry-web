@@ -21,7 +21,7 @@
         <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
             aria-controls="collapsePages">
             <i class="fas fa-fw fa-folder"></i>
-            <span>Outlet</span>
+            <span>Page</span>
         </a>
         <div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
             data-parent="#accordionSidebar">
@@ -32,6 +32,8 @@
                 <a class="collapse-item" href="{{ url('/outlet')}}">Outlet</a> 
                 <a class="collapse-item" href="{{ url('/paket')}}">Paket</a>
                 <a class="collapse-item" href="{{ url('/pengguna')}}">Pengguna</a>
+                <a class="collapse-item" href="{{ route('pelanggans.pelanggan')}}">Pelanggan</a>
+                <a class="collapse-item" href="">transaksi</a>
                 <div class="collapse-divider"></div>    
             </div>
         </div>

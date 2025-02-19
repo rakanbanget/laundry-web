@@ -5,6 +5,7 @@ use App\Http\Controllers\Authcontroller;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\OutletController;
 use App\Http\Controllers\PaketController;
+use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\UserController;
 use App\Models\User;
 
@@ -42,6 +43,12 @@ Route::post('pengguna/store', [UserController::class, 'store'])->name('penggunas
 Route::get('pengguna/edit/{id}', [UserController::class, 'edit'])->name('penggunas.edit');
 Route::post('pengguna/update/{id}', [UserController::class, 'update'])->name('penggunas.update');
 Route::delete('pengguna/delete/{id}', [UserController::class, 'destroy'])->name('penggunas.destroy');
+
+Route::get('pelanggan', [PelangganController::class, 'index'])->name('pelanggans.pelanggan');
+Route::get('pelanggan/create', [PelangganController::class, 'create'])->name('pelanggans.create');
+Route::post('pelanggan/store', [PelangganController::class, 'store'])->name('pelanggans.store');
+Route::delete('pelanggan/destroy/{id}', [PelangganController::class, 'destroy'])->name('pelanggans.destroy');
+
 
 Route::get('sidebar', [OutletController::class, 'sidebar'],)->name('components.sidebar');
 

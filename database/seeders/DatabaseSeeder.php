@@ -7,6 +7,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use App\Models\Outlet;
 use App\Models\Paket;
+use App\Models\Pelanggan;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -32,10 +33,9 @@ class DatabaseSeeder extends Seeder
 
         $data = [[
             'nama' => 'Gozi',
-            'username' => 'Gozi',
-            'password' => '123',
-            'id_outlet'=> 1,
-            'role' => 'kasir'
+            'alamat' => 'jalan kemana aja',
+            'jenis_kelamin' => 'L',
+            'tlp' => '0823212319837'
         ]];
 
         // $pakets = [[
@@ -44,13 +44,14 @@ class DatabaseSeeder extends Seeder
         //     'nama_paket' => 'gozi',
         //     'harga' => '12000'
         // ]];
+        
 
         // foreach ($pakets as $index) {
         //     Paket::insert($index);
         // }
 
         foreach ($data as $index) {
-            User::insert($index);
+            Pelanggan::insert($index);
         }
     }
 }

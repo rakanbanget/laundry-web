@@ -8,8 +8,8 @@
     <table class="table mt-3">
         <thead>
             <tr>
-                <th>Kode Invoice</th>
-                <th>Member</th>
+                <th>ID Transaksi</th>
+                <th></th>
                 <th>Status</th>
                 <th>Dibayar</th>
                 <th>Aksi</th>
@@ -23,7 +23,7 @@
                 <td>{{ $transaksi->status }}</td>
                 <td>{{ $transaksi->dibayar }}</td>
                 <td>
-                    <a href="{{ route('transaksis.show')}}" class="btn btn-info">Detail</a>
+                    <a href="" class="btn btn-info">Detail</a>
                 </td>
             </tr>
             @endforeach

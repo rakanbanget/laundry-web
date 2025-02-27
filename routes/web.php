@@ -53,6 +53,9 @@ Route::post('pelanggan/update/{id}', [PelangganController::class, 'update'])->na
 Route::delete('pelanggan/destroy/{id}', [PelangganController::class, 'destroy'])->name('pelanggans.destroy');
 
 Route::get('transaksi', [TransaksiController::class, 'index'])->name('transaksis.transaksi');
+Route::get('transaksi/create', [TransaksiController::class, 'create'])->name('transaksis.create');
+Route::post('transaksi/store', [TransaksiController::class, 'store'])->name('transaksis.store');
+Route::get('transaksi/show', [TransaksiController::class, 'show'])->name('transaksis.show');
 
 Route::get('sidebar', [OutletController::class, 'sidebar'],)->name('components.sidebar');
 

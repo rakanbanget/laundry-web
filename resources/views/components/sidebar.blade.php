@@ -24,7 +24,7 @@
             <span>Regist Pelanggan</span>
         </a>
     <hr class="sidebar-divider d-none d-md-block">
-        <a class="text-white ml-3" href="{{ route('transaksis.transaksi') }}">
+        <a class="text-white ml-3" href="{{ route('transaksis.create') }}">
             <i class="fas fa-money-bill-wave"></i>
             <span>Transaksi</span>
         </a>
@@ -46,7 +46,7 @@
                 <a class="collapse-item" href="{{ url('/paket')}}">Paket</a>
                 <a class="collapse-item" href="{{ url('/pengguna')}}">Pengguna</a>
                 <a class="collapse-item" href="{{ route('pelanggans.pelanggan')}}">Pelanggan</a>
-                <a class="collapse-item" href="">transaksi</a>
+                <a class="collapse-item" href="{{ route('transaksis.transaksi')}}">transaksi</a>
                 <div class="collapse-divider"></div>    
             </div>
         </div>

@@ -86,11 +86,11 @@ class TransaksiController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Transaksi $transaksi)
+    public function show()
     {
         //
-        $transaksis = DetailTransaksi::all();
-        return view('transaksis.show', compact('transaksis'));
+        $details = DetailTransaksi::with('paket')->get();        
+        return view('transaksis.show', compact('details'));
     }
 
     /**

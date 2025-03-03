@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\DetailTransaksi;
 use App\Models\User;
 use App\Models\Outlet;
 use App\Models\Paket;
@@ -33,27 +34,27 @@ class DatabaseSeeder extends Seeder
         //     'tlp' => '081238912'
         // ]];
 
-        $data = [[
-            'id_outlet'      => 1,
-            'kode_invoice'   => 'INV-578',
-            'id_member'      => 1,
-            'tgl'            => Carbon::now(),
-            'batas_waktu'    => Carbon::now()->addDays(3),
-            'tgl_bayar'      => Carbon::now()->addDays(3),
-            'biaya_tambahan' => 0,
-            'diskon'         => 0,
-            'pajak'          => 0,
-            'status'         => 'baru',
-            'dibayar'        => 'belum_dibayar',
-            'id_user'        => 1,
-        ]];
-
-        // $pakets = [[
-        //     'id_outlet' => '1',
-        //     'jenis' => 'kiloan',
-        //     'nama_paket' => 'gozi',
-        //     'harga' => '12000'
+        // $data = [[
+        //     'id_outlet'      => 1,
+        //     'kode_invoice'   => 'INV-578',
+        //     'id_member'      => 1,
+        //     'tgl'            => Carbon::now(),
+        //     'batas_waktu'    => Carbon::now()->addDays(3),
+        //     'tgl_bayar'      => Carbon::now()->addDays(3),
+        //     'biaya_tambahan' => 0,
+        //     'diskon'         => 0,
+        //     'pajak'          => 0,
+        //     'status'         => 'baru',
+        //     'dibayar'        => 'belum_dibayar',
+        //     'id_user'        => 1,
         // ]];
+
+        $data = [[
+            'id_transaksi' => '1',
+            'id_paket' => '1',
+            'qty' => '3',
+            'keterangan' => 'beliii'
+        ]];
         
 
         // foreach ($pakets as $index) {
@@ -61,7 +62,7 @@ class DatabaseSeeder extends Seeder
         // }
 
         foreach ($data as $index) {
-            Transaksi::insert($index);
+            DetailTransaksi::insert($index);
         }
     }
 }

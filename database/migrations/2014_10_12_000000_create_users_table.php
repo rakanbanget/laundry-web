@@ -19,13 +19,20 @@ return new class extends Migration
             $table->unsignedBigInteger('id_outlet');
             $table->enum('role', ['admin', 'kasir', 'owner']);
         });
+
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('role')->default('kasir'); // Default role bisa disesuaikan
+        });
     }
 
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+    
+    public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('role');
+        });
     }
 };

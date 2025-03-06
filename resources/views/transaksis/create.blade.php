@@ -67,11 +67,11 @@
                 </div>
                 <div class="form-group">
                     <label for="paket">Paket :</label>
-                    <select name="details[0][id_paket]" id="dibayar" value="{{ old('dibayar') }}">
+                    <select name="details[0][id_paket]" id="paket" value="{{ old('paket[0][id_paket]') }}">
                        @foreach ($pakets as $paket)
                         <option value="{{ $paket->id}}">{{ $paket->nama_paket}}</option>
                        @endforeach
-                    </select>
+                    </select>   
                 </div>
                 <div class="form-group">
                     <label for="qty">Jumlah (Qty):</label>
@@ -82,6 +82,11 @@
                     <label for="qty">Diskon:</label>
                     <input type="number" class="form-control" id="diskon" name="diskon" 
                         value="{{ old('diskon') }}">
+                </div>
+                <div class="form-group">
+                    <label for="keterangan">Keterangan:</label>
+                    <input class="form-control" id="keterangan" name="keterangan" 
+                        value="{{ old('keterangan') }}">
                 </div>
                 <button type="submit" class="btn btn-primary mt-4">Submit</button>
             </form>

@@ -11,6 +11,7 @@ class Transaksi extends Model
     use HasFactory;
     
     protected $table = 'tb_transaksi';
+    // public $timestamps = false;
     public $timestamps = false;
     protected $fillable = [
         'id_outlet',

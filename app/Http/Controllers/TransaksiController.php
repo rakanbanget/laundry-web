@@ -34,52 +34,45 @@ class TransaksiController extends Controller
     }
     public function store(Request $request)
     {
-        $request->validate([
-            'id_member' => 'required|exists:tb_member,id',
-            'batas_waktu' => 'required|date',
-            'paket' => 'required|array',
-            'paket.*.id_paket' => 'required|exists:tb_paket,id',
-            'paket.*.qty' => 'required|numeric|min:1',
-            'biaya_tambahan' => 'nullable|integer|min:0',
-            'diskon' => 'nullable|numeric|min:0|max:100',
-        ]);
-
         $user = Auth::user();
-
+    
         $subtotal = 0;
-        foreach ($request->paket as $item) {
-            $paket = Paket::findOrFail($item['id_paket']);
-            $subtotal += $paket->harga * $item['qty'];
+        if (is_array($request->details)) {
+            foreach ($request->details as $item) {
+                $paket = Paket::findOrFail($item['id_paket']);
+                $subtotal += $paket->harga * $item['qty'];
+            }
+        } else {
+            // Handle the case where $request->details is null or not an array
+            return redirect()->back()->withErrors(['details' => 'Paket tidak valid atau tidak ada.']);
         }
-
+    
         $pajak = $subtotal * 0.0075;
-
+    
         $transaksi = Transaksi::create([
             'kode_invoice' => 'INV-' . time(),
             'id_outlet' => $request->id_outlet,
-            'id_member'=>$request->id_member,
+            'id_member' => $request->id_member,
             'tgl' => $request->tgl,
-            'batas_waktu'=> $request->batas_waktu,
+            'batas_waktu' => $request->batas_waktu,
             'tgl_bayar' => $request->tgl_bayar,
             'biaya_tambahan' => $request->biaya_tambahan ?? null,
             'diskon' => $request->diskon ?? null,
-            'id_user' =>$user->id,
-            'pajak'=>$pajak,
+            'id_user' => $user->id,
+            'pajak' => $pajak,
             'status' => $request->status,
             'dibayar' => $request->dibayar
         ]);
-
-
-        foreach ($request->paket as $item) {
-            DetailTransaksi::create(
-                    [
-                        'id_transaksi'=> $transaksi->id,
-                        'id_paket' => $item['id_paket'],
-                        'qty' => $item['qty'],
-                        'keterangan' => $item['keterangan'] ?? null,
-                    ]
-            );
+    
+        foreach ($request->details as $item) {
+            DetailTransaksi::create([
+                'id_transaksi' => $transaksi->id,
+                'id_paket' => $item['id_paket'],
+                'qty' => $item['qty'],
+                'keterangan' => $item['keterangan'] ?? 'Tidak ada keterangan',
+            ]);
         }
+    
         return redirect()->route('transaksis.transaksi')->with('success', 'Transaksi berhasil ditambahkan!');
     }
 
